@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView} from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DeliveryAddress1 = () => {
+  const navigation = useNavigation();
   const [address, setAddress] = useState('');
   const [addressDetail, setAddressDetail] = useState('');
   const [recipientName, setRecipientName] = useState('');
@@ -11,6 +13,16 @@ const DeliveryAddress1 = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Delivery Address</Text>
+
+      {/* Back and Love Icons */}
+      <View style={styles.iconContainer}>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconBack}>
+        <Icon name="arrow-left" size={30} color="#4e2e1f" />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => alert('Loved!')} style={styles.iconLove}>
+        <Icon name="heart" size={30} color="#4e2e1f" />
+      </TouchableOpacity>
+      </View>
 
       {/* Address Input */}
       <View style={styles.inputContainer}>
@@ -76,6 +88,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 60,
   },
+  iconContainer: {
+  flexDirection: 'row', 
+  justifyContent: 'space-between', 
+  alignItems: 'center',
+  position: 'absolute',
+  top: 110, // Menambahkan jarak ke atas
+  left: 20,
+  right: 20,
+},
+iconBack: {
+  position: 'relative',
+},
+iconLove: {
+  position: 'relative',
+},
   title: {
     fontSize: 30,
     fontWeight: 'bold',
@@ -88,7 +115,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   input: {
     backgroundColor: '#fff',

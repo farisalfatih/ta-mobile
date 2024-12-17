@@ -16,7 +16,7 @@ const SignUp = () => {
       [
         {
           text: "OK",
-          onPress: () => navigation.navigate('Home') // Navigate to Home screen after sign up
+          onPress: () => navigation.navigate('SignIn') // Navigate to Home screen after sign up
         }
       ]
     );
@@ -71,7 +71,7 @@ const SignUp = () => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFF9E7',
+    backgroundColor: '#f3e0d1',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    color: '#000',
+    color: '#4e2e1f',
     marginBottom: 20,
   },
   input: {
@@ -93,12 +93,12 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: '#FF4081',
+    borderColor: '#4e2e1f',
     marginBottom: 15,
     fontSize: 16,
   },
   signUpButton: {
-    backgroundColor: '#FF4081',
+    backgroundColor: '#4e2e1f',
     paddingVertical: 15,
     paddingHorizontal: 50,
     borderRadius: 30,

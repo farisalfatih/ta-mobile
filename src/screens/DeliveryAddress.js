@@ -1,12 +1,23 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DeliveryAddress = () => {
     const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Delivery Address</Text>
+
+       {/* Back and Love Icons */}
+            <View style={styles.iconContainer}>
+              <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconBack}>
+                <Icon name="arrow-left" size={30} color="#4e2e1f" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => alert('Loved!')} style={styles.iconLove}>
+                <Icon name="heart" size={30} color="#4e2e1f" />
+              </TouchableOpacity>
+            </View>
       
       {/* Address Card */}
       <View style={styles.card}>
@@ -28,7 +39,7 @@ const DeliveryAddress = () => {
       {/* Create Address Button */}
       <TouchableOpacity
         style={styles.createButton}
-        onPress={() => navigation.navigate('DeliveryAddress1')} // Menggunakan navigation
+        onPress={() => navigation.navigate('DeliveryAddress1')} 
       >
         <Text style={styles.createButtonText}>Create Address</Text>
       </TouchableOpacity>
@@ -43,6 +54,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 60,
   },
+  iconBack: {
+    position: 'absolute',
+    left: 0,
+  },
+  iconLove: {
+    position: 'absolute',
+    right: 0,
+  },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
@@ -53,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAEAEA',
     borderRadius: 10,
     padding: 20,
-    marginVertical: 20,
+    marginVertical: 60,
     elevation: 2,
     shadowColor: '#000',
   },

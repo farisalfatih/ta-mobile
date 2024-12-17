@@ -7,10 +7,11 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
+  // Handler untuk navigasi Sign In
   const handleSignIn = () => {
-    // Handle sign in logic
+    // Logika autentikasi bisa ditambahkan di sini
     alert(`Email: ${email}, Password: ${password}`);
-
+    navigation.navigate('Home'); // Navigasi ke screen Home
   };
 
   return (
@@ -18,9 +19,6 @@ const SignIn = () => {
       {/* Sign In Form */}
       <View style={styles.form}>
         <Text style={styles.title}>Sign In</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Text>Pindah Screen ke Home</Text>
-        </TouchableOpacity>
       </View>
 
       {/* Email Input */}
@@ -31,7 +29,6 @@ const SignIn = () => {
         style={styles.input}
         keyboardType="email-address"
         autoCapitalize="none"
-        required
       />
 
       {/* Password Input */}
@@ -41,7 +38,6 @@ const SignIn = () => {
         onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
-        required
       />
 
       <View style={styles.forgotContainer}>
@@ -72,7 +68,10 @@ const SignIn = () => {
       {/* Sign Up Link */}
       <Text style={styles.signUpText}>
         Don’t have an account yet?{' '}
-        <Text onPress={() => Linking.openURL('/signup')} style={styles.signUpLink}>
+        <Text
+          onPress={() => navigation.navigate('SignUp')} 
+          style={styles.signUpLink}
+        >
           Sign Up
         </Text>
       </Text>
@@ -83,11 +82,10 @@ const SignIn = () => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFF9E7',
+    backgroundColor: '#f3e0d1',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'Poppins, sans-serif',
     padding: 20,
   },
   form: {
@@ -97,7 +95,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    color: '#000',
+    color: '#4e2e1f',
     marginBottom: 20,
   },
   input: {
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: '#FF4081',
+    borderColor: '#4e2e1f',
     marginBottom: 15,
     fontSize: 16,
   },
@@ -119,7 +117,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   signInButton: {
-    backgroundColor: '#FF4081',
+    backgroundColor: '#4e2e1f',
     paddingVertical: 15,
     paddingHorizontal: 50,
     borderRadius: 30,
@@ -152,7 +150,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   signUpLink: {
-    color: '#FF4081',
+    color: '#4e2e1f',
     textDecorationLine: 'underline',
   },
 });
