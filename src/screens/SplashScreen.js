@@ -7,7 +7,7 @@ const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       setAnimating(false);
-      navigation.replace('Home');
+      navigation.replace('SignIn');
     }, 5000); // SplashScreen will remain visible for 5 seconds
   }, [navigation]);
 

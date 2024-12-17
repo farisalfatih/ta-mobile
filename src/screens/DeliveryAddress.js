@@ -39,15 +39,15 @@ const DeliveryAddress = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAFBEA',
+    backgroundColor: '#f3e0d1',
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingVertical: 60,
   },
   title: {
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 30,
   },
   card: {
     backgroundColor: '#EAEAEA',
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   updateButton: {
-    backgroundColor: '#DDE5A7',
+    backgroundColor: '#2E7D32',
     borderRadius: 20,
     paddingVertical: 8,
     paddingHorizontal: 20,
   },
   deleteButton: {
-    backgroundColor: '#E44375',
+    backgroundColor: '#f00',
     borderRadius: 20,
     paddingVertical: 8,
     paddingHorizontal: 20,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   createButton: {
-    backgroundColor: '#E44375',
+    backgroundColor: '#4e2e1f',
     borderRadius: 20,
     paddingVertical: 12,
     alignItems: 'center',
