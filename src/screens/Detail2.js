@@ -171,7 +171,7 @@ const Detail2 = () => {
       {/* Add margin to create more space below the summary */}
       <View style={styles.spacing} />
 
-      <TouchableOpacity style={styles.checkoutButton}>
+      <TouchableOpacity style={styles.checkoutButton} onPress={() => navigation.navigate('DeliveryAddress')}>
         <Text style={styles.checkoutText}>Check Out</Text>
       </TouchableOpacity>
 

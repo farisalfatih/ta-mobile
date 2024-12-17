@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; 
 
-const Detail1 = () => {
+const Detail1 = () => {  
   const navigation = useNavigation();
-  const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState('Small');
   const [milk, setMilk] = useState('Oat');
@@ -14,49 +13,35 @@ const Detail1 = () => {
 
   const totalPrice = 18000 * quantity;
 
-  // Fungsi CRUD
-  const addToCart = () => {
-    const newItem = {
-      id: cart.length + 1,
-      name: 'Frappuccino',
-      size,
-      milk,
-      cream,
-      chocolateSyrup,
-      quantity,
-      totalPrice,
-    };
-
-    setCart((prevCart) => [...prevCart, newItem]);
-    Alert.alert('Success', 'Item added to cart!');
-  };
-
-  const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-    Alert.alert('Removed', 'Item removed from cart.');
-  };
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Background split into two colors */}
       <View style={styles.backgroundTop}></View>
       <View style={styles.backgroundBottom}></View>
 
+      {/* Main content */}
       <View style={styles.content}>
+        {/* Header Section */}
         <View style={styles.header}>
           <Text style={styles.title}>SecangkirCerita</Text>
+          {/* Back and Love Icons */}
           <View style={styles.iconContainer}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconBack}>
-              <Icon name="arrow-left" size={30} color="#d4b895" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => alert('Loved!')} style={styles.iconLove}>
-              <Icon name="heart" size={30} color="#d4b895" />
-            </TouchableOpacity>
-          </View>
+          <Icon name="arrow-left" size={30} color="#d4b895" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => alert('Loved!')} style={styles.iconLove}>
+          <Icon name="heart" size={30} color="#d4b895" />
+        </TouchableOpacity>
+      </View>
         </View>
 
+        {/* Product Image */}
         <Image source={require('../images/frappucinobg.png')} style={[styles.image, { marginTop: -30 }]} />
 
+
+        {/* New View for Controls and Product Info */}
         <View style={styles.infoContainer}>
+          {/* Quantity Control */}
           <View style={styles.quantityWrapper}>
             <TouchableOpacity onPress={() => setQuantity(quantity > 1 ? quantity - 1 : 1)} style={styles.quantityButton}>
               <Text style={styles.quantityButtonText}>-</Text>
@@ -67,12 +52,16 @@ const Detail1 = () => {
             </TouchableOpacity>
           </View>
 
+          {/* Product Title */}
           <Text style={styles.productTitle}>Frappuccino</Text>
+
+          {/* Product Description */}
           <Text style={styles.description}>
             Indulge in pure bliss with our Frappuccino! This icy concoction blends rich, smooth coffee with velvety milk,
             creating a refreshing symphony of flavors.
           </Text>
 
+          {/* Size Selection */}
           <Text style={styles.sectionTitle}>Size</Text>
           <View style={styles.sizeOptions}>
             {['Small', 'Medium', 'Large'].map((option) => (
@@ -86,18 +75,24 @@ const Detail1 = () => {
             ))}
           </View>
 
+          {/* Customization Options */}
           <Text style={styles.sectionTitle}>Customize your coffee</Text>
           <View style={styles.customOptions}>
+            {/* Milk Option */}
             <TouchableOpacity onPress={() => setMilk(milk === 'Oat' ? 'Almond' : 'Oat')} style={styles.customOption}>
               <Text>🥛</Text>
               <Text> Milk</Text>
               <Text>{milk}</Text>
             </TouchableOpacity>
+
+            {/* Cream Option */}
             <TouchableOpacity onPress={() => setCream(!cream)} style={styles.customOption}>
               <Text>🍦</Text>
               <Text> Cream</Text>
               <Text>{cream ? 'Yes' : 'No'}</Text>
             </TouchableOpacity>
+
+            {/* Chocolate Syrup Option */}
             <TouchableOpacity onPress={() => setChocolateSyrup(!chocolateSyrup)} style={styles.customOption}>
               <Text>🍫</Text>
               <Text> Chocolate Syrup</Text>
@@ -105,11 +100,13 @@ const Detail1 = () => {
             </TouchableOpacity>
           </View>
 
+          {/* Total Price */}
           <Text style={styles.totalPrice}>Total price Rp {totalPrice}</Text>
 
-          <TouchableOpacity style={styles.addToCartButton} onPress={addToCart}>
-            <Text style={styles.addToCartText}>Add to cart</Text>
-          </TouchableOpacity>
+          {/* Add to Cart Button */}
+          <TouchableOpacity style={styles.addToCartButton} onPress={() => navigation.navigate('Detail2')}>
+  <Text style={styles.addToCartText}>Add to cart</Text>
+</TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -263,4 +260,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Detail1; 
+export default Detail1;
