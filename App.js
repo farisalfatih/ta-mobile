@@ -7,6 +7,7 @@ import Detail from './src/screens/Detail';
 import Detail1 from './src/screens/Detail1';
 import Detail2 from './src/screens/Detail2'; 
 import DeliveryAddress from './src/screens/DeliveryAddress';
+import DeliveryAddress1 from './src/screens/DeliveryAddress1';
 import SplashScreen from './src/screens/SplashScreen';
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ function App() {
         <Stack.Screen name="Detail1" component={Detail1} />
         <Stack.Screen name="Detail2" component={Detail2} />
         <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} />  
+        <Stack.Screen name="DeliveryAddress1" component={DeliveryAddress1} /> 
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
       </Stack.Navigator>
     </NavigationContainer>

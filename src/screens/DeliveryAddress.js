@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; 
 
 const DeliveryAddress = () => {
+    const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Delivery Address</Text>
@@ -24,7 +26,10 @@ const DeliveryAddress = () => {
       </View>
 
       {/* Create Address Button */}
-      <TouchableOpacity style={styles.createButton}>
+      <TouchableOpacity
+        style={styles.createButton}
+        onPress={() => navigation.navigate('DeliveryAddress1')} // Menggunakan navigation
+      >
         <Text style={styles.createButtonText}>Create Address</Text>
       </TouchableOpacity>
     </SafeAreaView>
